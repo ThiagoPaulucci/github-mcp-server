@@ -1,0 +1,26 @@
+{
+  "name": "github-mcp-server",
+  "version": "1.0.0",
+  "description": "A GitHub integration MCP server built with TypeScript and Node.js",
+  "type": "module",
+  "private": false,
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.4.0",
+    "@octokit/rest": "^22.0.1",
+    "dotenv": "^18.0.10",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}
