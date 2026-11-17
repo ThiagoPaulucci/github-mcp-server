@@ -1,7 +1,12 @@
-
-import { McpServer } from "@modelcontextprotocol/server";
+﻿import { McpServer } from "@modelcontextprotocol/server";
 import { serveStdio } from "@modelcontextprotocol/server/stdio";
 import * as z from "zod/v4";
+import { registerRepositoryTools } from "./tools/repositories.js";
+import { registerRepositoryDetailsTools } from "./tools/repository-details.js";
+import { registerIssueTools } from "./tools/issues.js";
+import { registerCreateIssueTool } from "./tools/create-issue.js";
+import { registerPullRequestTools } from "./tools/pull-requests.js";
+import { registerCreatePullRequestTool } from "./tools/create-pull-request.js";
 
 const server = new McpServer({
   name: "github-mcp-server",
@@ -23,5 +28,12 @@ server.registerTool(
     ],
   })
 );
+
+registerRepositoryTools(server);
+registerRepositoryDetailsTools(server);
+registerIssueTools(server);
+registerCreateIssueTool(server);
+registerPullRequestTools(server);
+registerCreatePullRequestTool(server);
 
 serveStdio(() => server);
